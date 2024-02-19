@@ -9,7 +9,7 @@
     <h1>rock paper scissors</h1>
     <button
       onclick="
-      randomComputerMove();
+      const computerMove = randomComputerMove();
     let result='';
     if(computerMove==='rock'){
       result='Tie'
@@ -31,7 +31,7 @@
     </button>
     <button
       onclick="
-      randomComputerMove();
+      const computerMove = randomComputerMove();
 
       let result='';
       if(computerMove==='paper'){
@@ -53,7 +53,7 @@
     <button
     
     onclick="
-    randomComputerMove();
+    const computerMove = randomComputerMove();
 
     let result='';
     if(computerMove==='scissor'){
@@ -77,7 +77,7 @@
       function randomComputerMove(){
         const randomNumber =Math.random();
 
-  let ComputerMove= ``;
+  let computerMove= ``;
   if(randomNumber>=0 && randomNumber<1/3){
     computerMove='rock';}
     else if(randomNumber>=1/3 && randomNumber<2/3){
@@ -86,7 +86,7 @@
     else if (randomNumber>=2/3 && randomNumber<1){
       computerMove='paper';
     };
-
+      return computerMove;
       };
     
     </script>
