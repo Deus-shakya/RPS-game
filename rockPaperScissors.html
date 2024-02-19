@@ -14,8 +14,24 @@
   <button onclick=" resultOfGame('paper') ">paper</button>
 
   <button onclick=" resultOfGame('scissor') ">scissor</button>
+  <button onclick="resetfunction()">Reset</button>
 
   <script>
+//script for score counting(creating object)
+    const score= {
+      Win:0,
+      Losses:0,
+      Tie:0
+    }
+//reset function for score
+    function resetfunction(){
+      score.Win=0;
+      score.Losses=0;
+      score.Tie=0;
+      alert(`Done Reset
+Win: ${score.Win}   Losses: ${score.Losses}   Ties: ${score.Tie}`);
+    }
+// creating function to generate random results
     function randomComputerMove() {
       const randomNumber = Math.random();
 
@@ -29,7 +45,7 @@
       }
       return computerMove;
     }
-
+//creating function to  get result(Nested if/else)
     function resultOfGame(playerMove) {
       const computerMove = randomComputerMove();
       let result = "";
@@ -65,10 +81,22 @@
         };
       }
 
+      if(result==='You win'){
+        score.Win+=1;
+      }
+      else if (result==='You lose'){
+        score.Losses+=1;
+      }
+      else if(result==='Tie'){
+       score.Tie+=1; 
+      }
+//Alert for the result with score
       alert(
-        `You chose ${playerMove} and the computer chose ${computerMove}. ${result}`
+        `You chose ${playerMove} and the computer chose ${computerMove}. ${result}
+Win: ${score.Win}   Losses: ${score.Losses}   Ties: ${score.Tie}`
       );
     }
+    
   </script>
 </body>
 
