@@ -18,16 +18,15 @@
 
     <script>
       //script for score counting(creating object)............................
-      let score = JSON.parse(localStorage.getItem("score"));
+      let score = JSON.parse(
+        localStorage.getItem("score")
+      ) || // using OR to reset the value of game if the socre is null (default operator)
+      {
+        Win: 0,
+        Losses: 0,
+        Tie: 0,
+      };
 
-      //incase of empty reset
-      if (score === null) {
-        score = {
-          Win: 0,
-          Losses: 0,
-          Tie: 0,
-        };
-      }
       //reset function for score.................................
       function resetfunction() {
         score.Win = 0;
@@ -99,8 +98,10 @@
         );
       }
 
-      function showScore(){
-        alert(`Win: ${score.Win}   Losses: ${score.Losses}   Ties: ${score.Tie}`);
+      function showScore() {
+        alert(
+          `Win: ${score.Win}   Losses: ${score.Losses}   Ties: ${score.Tie}`
+        );
       }
     </script>
   </body>
