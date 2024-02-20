@@ -1,0 +1,16 @@
+body{
+  color:white;
+  background-color:#181818;
+  text-align: center;
+  margin:15%;
+
+}
+button{
+  color:white;
+  background-color:#181818;
+  margin:1%;
+  
+}
+button:hover{
+  background-color: #0f0f0f;
+}

@@ -3,29 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>RPS</title>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <h1>rock paper scissors</h1>
+    <h1>ROCK PAPER SCISSORS</h1>
     <button onclick=" resultOfGame('rock') ">Rock</button>
 
     <button onclick=" resultOfGame('paper') ">paper</button>
 
     <button onclick=" resultOfGame('scissor') ">scissor</button>
-    <button onclick="showScore()">Score</button>
+    <p class="js-result"></p>
+    <p class="js-moves"></p>
+    <p class="js-score"></p>
     <button onclick="resetfunction()">Reset</button>
 
     <script>
       //script for score counting(creating object)............................
-      let score = JSON.parse(
-        localStorage.getItem("score")
-      ) || // using OR to reset the value of game if the socre is null (default operator)
-      {
+      let score = JSON.parse(localStorage.getItem("score")) || {
+        // using OR to reset the value of game if the socre is null (default operator)
         Win: 0,
         Losses: 0,
         Tie: 0,
       };
+
+      showScore();
 
       //reset function for score.................................
       function resetfunction() {
@@ -33,9 +36,10 @@
         score.Losses = 0;
         score.Tie = 0;
         localStorage.removeItem("score");
+        document.querySelector('.js-result').innerHTML ='';
+        document.querySelector('.js-moves').innerHTML ='';
+        showScore();
 
-        alert(`Done Reset
-      Win: ${score.Win}   Losses: ${score.Losses}   Ties: ${score.Tie}`);
       }
       // creating function to generate random results....................................
       function randomComputerMove() {
@@ -90,18 +94,22 @@
         }
         //saving the scores into localStorage
         localStorage.setItem("score", JSON.stringify(score));
+        showScore();
 
-        //Alert for the result with score............................
-        alert(
-          `You chose ${playerMove} and the computer chose ${computerMove}. ${result}
-      Win: ${score.Win}   Losses: ${score.Losses}   Ties: ${score.Tie}`
-        );
+        document.querySelector('.js-result').innerHTML = result;
+
+        document.querySelector(
+          '.js-moves'
+        ).innerHTML = `You: ${playerMove} - Computer: ${computerMove}`;
+
+        
+        
       }
-
+      //creating  function to show the score in the webpage using DOM
       function showScore() {
-        alert(
-          `Win: ${score.Win}   Losses: ${score.Losses}   Ties: ${score.Tie}`
-        );
+        document.querySelector(
+          ".js-score"
+        ).innerHTML = `Win: ${score.Win}   Losses: ${score.Losses}   Ties: ${score.Tie}`;
       }
     </script>
   </body>
