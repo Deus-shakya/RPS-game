@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RPS</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
 
   <body>
     <h1>ROCK PAPER SCISSORS</h1>
-    <button onclick=" resultOfGame('rock') ">Rock</button>
+    <button class="hand" onclick=" resultOfGame('rock') "><i class="fa-regular fa-hand-back-fist"></i></button>
 
-    <button onclick=" resultOfGame('paper') ">paper</button>
+    <button class="hand" onclick=" resultOfGame('paper') "><i class="fa-regular fa-hand" ></i></button>
 
-    <button onclick=" resultOfGame('scissor') ">scissor</button>
+    <button class="hand" onclick=" resultOfGame('scissor') "><i class="fa-regular fa-hand-scissors" ></i></button>
     <p class="js-result"></p>
     <p class="js-moves"></p>
     <p class="js-score"></p>
-    <button onclick="resetfunction()">Reset</button>
+    <button class="reset-button" onclick="resetfunction()">RESET </button><br>
+    <button onclick="funny()" class="exit-button">EXIT</button>
 
     <script>
       //script for score counting(creating object)............................
@@ -110,6 +112,9 @@
         document.querySelector(
           ".js-score"
         ).innerHTML = `Win: ${score.Win}   Losses: ${score.Losses}   Ties: ${score.Tie}`;
+      }
+      function funny(){
+        document.querySelector('.exit-button').innerHTML= '<i class="fa-solid fa-hand-middle-finger" style="color: #181818; font-size:8cm;"></i>';
       }
     </script>
   </body>
