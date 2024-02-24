@@ -88,3 +88,9 @@ function showScore() {
 function funny() {
   window.location.href = "fun.html";
 }
+
+
+//fun ..............................................................
+function goBackfun() {
+  window.location.href = "rockPaperScissors.html";
+}
