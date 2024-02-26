@@ -23,14 +23,23 @@ body{
   margin:1% 5% 1% 5%;
 }
 
-.reset-button{
-  
-  border:none;
+.reset-button, .autoplay-button{
   background-color:#181818;
   color:#63E6BE;
   font-size: 1cm;
+  border-color: #63E6BE;
+  border-radius: 30cm;
+  padding:0cm 0.5cm 0cm 0.5cm;
 }
 .reset-button:hover{
+  border-radius: 30cm;
+  padding:0cm 0.5cm 0cm 0.5cm;
+  background-color:#63E6BE;
+  transition-duration: 0.5s;
+  color:#181818;
+  font-size: 1cm;
+}
+.autoplay-button:hover{
   border-radius: 30cm;
   padding:0cm 0.5cm 0cm 0.5cm;
   background-color:#63E6BE;

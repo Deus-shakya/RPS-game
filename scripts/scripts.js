@@ -32,6 +32,23 @@ function randomComputerMove() {
   }
   return computerMove;
 }
+//creating autoplay using setInterval
+let autoplayStatus=false;
+let intervalId='';
+function autoplay(){
+      if(!autoplayStatus){intervalId=setInterval(function(){
+        let automove=randomComputerMove();
+        resultOfGame(automove);
+      },1000);
+      document.querySelector('.autoplay-button').innerHTML='STOP';
+      console.log(autoplayStatus=true);
+
+    }else{
+      clearInterval(intervalId);
+      document.querySelector('.autoplay-button').innerHTML='AUTOPLAY';
+      autoplayStatus=false;
+    }
+}
 //creating function to  get result(Nested if/else)..........................
 function resultOfGame(playerMove) {
   const computerMove = randomComputerMove();
